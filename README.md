@@ -1,3 +1,3 @@
 # receita4
 
-A new Flutter project.
+Projeto referente a Receita 4
