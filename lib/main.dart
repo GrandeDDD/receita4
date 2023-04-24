@@ -1,40 +1,42 @@
 import 'package:flutter/material.dart';
 
-class MyTileWidget extends StatelessWidget {
-  final String nome;
-  final String categoria;
-  final String preco;
-
-  const MyTileWidget({
-    required this.nome,
-    required this.categoria,
-    required this.preco,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(nome),
-      subtitle: Text("$categoria - $preco"),
-      trailing: Icon(Icons.arrow_forward),
-      onTap: () {
-        print("Tile foi tocado!");
-      },
-    );
-  }
+void main() {
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp();
-
   final navBarIcons = [
     Icons.arrow_back,
     Icons.house,
     Icons.table_bar,
-    Icons.bathtub,
+    Icons.bathtub
   ];
 
-  final List<String> colorsList = ['Vermelho', 'Verde', 'Azul'];
+  final List<Map<String, dynamic>> products = [
+    {"name": "Tapete para sala", "sector": "Casa", "price": "R\$34,99"},
+    {"name": "Toalha de mesa florida", "sector": "Mesa", "price": "R\$49,99"},
+    {"name": "Kit toalhas corpo/rosto", "sector": "Banho", "price": "R\$59,00"},
+    {"name": "Jogo de cama Queen", "sector": "Casa", "price": "R\$119,90"},
+    {"name": "Cortina blackout", "sector": "Casa", "price": "R\$79,99"},
+    {"name": "Tapete para sala", "sector": "Casa", "price": "R\$34,99"},
+    {"name": "Porta-retrato decorativo", "sector": "Decoração", "price": "R\$29,90"},
+    {"name": "Conjunto de panelas", "sector": "Mesa", "price": "R\$189,99"},
+    {"name": "Toalha de mesa xadrez", "sector": "Mesa", "price": "R\$39,99"},
+    {"name": "Almofada decorativa", "sector": "Casa", "price": "R\$49,90"},
+    {"name": "Jogo de banho bordado", "sector": "Banho", "price": "R\$79,90"},
+    {"name": "Espelho de parede", "sector": "Banho", "price": "R\$99,99"},
+    {"name": "Kit de talheres", "sector": "Mesa", "price": "R\$29,99"},
+    {"name": "Pano de prato estampado", "sector": "Mesa", "price": "R\$9,99"},
+    {"name": "Porta-treco de cerâmica", "sector": "Casa", "price": "R\$19,90"},
+    {"name": "Travesseiro de plumas", "sector": "Casa", "price": "R\$89,99"},
+    {"name": "Luminária de mesa", "sector": "Casa", "price": "R\$59,90"},
+    {"name": "Jogo americano de tecido", "sector": "Mesa", "price": "R\$19,99"},
+    {"name": "Capa de almofada", "sector": "Casa", "price": "R\$19,99"},
+    {"name": "Kit de toalhas para lavabo", "sector": "Banho", "price": "R\$29,90"},
+    {"name": "Aparelho de jantar", "sector": "Mesa", "price": "R\$299,90"},
+    {"name": "Tapete para banheiro", "sector": "Banho", "price": "R\$24,99"},
+    {"name": "Vaso de plantas decorativo", "sector": "Casa", "price": "R\$69,90"}
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -54,15 +56,17 @@ class MyApp extends StatelessWidget {
             PopupMenuButton(
               icon: Icon(Icons.more_vert),
               itemBuilder: (context) {
-                return colorsList.map((color) {
-                  return PopupMenuItem(
-                    child: Text(color),
-                    value: color,
-                  );
-                }).toList();
-              },
-              onSelected: (selectedColor) {
-                print("Selecionaram a cor $selectedColor");
+                return [
+                  PopupMenuItem(
+                    child: Text("Vermelho"),
+                  ),
+                  PopupMenuItem(
+                    child: Text("Verde"),
+                  ),
+                  PopupMenuItem(
+                    child: Text("Azul"),
+                  ),
+                ];
               },
             )
           ],
@@ -87,100 +91,27 @@ class MyApp extends StatelessWidget {
               opacity: 0.5,
             ),
           ),
-          child: ListView(
-            children: [
-              MyTileWidget(
-                nome: 'Tapete para sala',
-                categoria: 'Casa',
-                preco: 'R\$34,99',
-              ),
-              MyTileWidget(
-                nome: 'Toalha de mesa florida',
-                categoria: 'Mesa',
-                preco: 'R\$49,99',
-              ),
-              MyTileWidget(
-                nome: 'Kit toalhas corpo/rosto',
-                categoria: 'Banho',
-                preco: 'R\$59,00',
-              ),
-              MyTileWidget(
-                nome: 'Tapete para sala',
-                categoria: 'Casa',
-                preco: 'R\$34,99',
-              ),
-              MyTileWidget(
-                nome: 'Toalha de mesa florida',
-                categoria: 'Mesa',
-                preco: 'R\$49,99',
-              ),
-              MyTileWidget(
-                nome: 'Kit toalhas corpo/rosto',
-                categoria: 'Banho',
-                preco: 'R\$59,00',
-              ),
-              MyTileWidget(
-                nome: 'Tapete para sala',
-                categoria: 'Casa',
-                preco: 'R\$34,99',
-              ),
-              MyTileWidget(
-                nome: 'Toalha de mesa florida',
-                categoria: 'Mesa',
-                preco: 'R\$49,99',
-              ),
-              MyTileWidget(
-                nome: 'Kit toalhas corpo/rosto',
-                categoria: 'Banho',
-                preco: 'R\$59,00',
-              ),
-              MyTileWidget(
-                nome: 'Tapete para sala',
-                categoria: 'Casa',
-                preco: 'R\$34,99',
-              ),
-              MyTileWidget(
-                nome: 'Toalha de mesa florida',
-                categoria: 'Mesa',
-                preco: 'R\$49,99',
-              ),
-              MyTileWidget(
-                nome: 'Kit toalhas corpo/rosto',
-                categoria: 'Banho',
-                preco: 'R\$59,00',
-              ),
-              MyTileWidget(
-                nome: 'Tapete para sala',
-                categoria: 'Casa',
-                preco: 'R\$34,99',
-              ),
-              MyTileWidget(
-                nome: 'Toalha de mesa florida',
-                categoria: 'Mesa',
-                preco: 'R\$49,99',
-              ),
-              MyTileWidget(
-                nome: 'Kit toalhas corpo/rosto',
-                categoria: 'Banho',
-                preco: 'R\$59,00',
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: products.length,
+              itemBuilder: (context, index) {
+                final product = products[index];
+                return ListTile(
+                  leading: Icon(Icons.shopping_cart),
+                  title: Text(product['name'],),
+                  subtitle: Text(product['sector']),
+                  trailing: Text(product['price']),
+                  onTap: () {
+                    print('Tile ${product['name']} tocado');
+                  },
+                );
+              },
+            ),
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: (index) {
-            print("Tocaram no botão $index");
-          },
-          selectedItemColor: Colors.green,
-          unselectedItemColor: Colors.green,
-          backgroundColor: Colors.green,
-          items: List.generate(navBarIcons.length, (index) {
-            return BottomNavigationBarItem(
-              icon: Icon(navBarIcons[index]),
-              label: "Voltar",
-            );
-          }),
-        ),
+        bottomNavigationBar: NewNavBar(navBarIcons),
         bottomSheet: Container(
           color: Colors.lightGreen,
           padding: EdgeInsets.all(16),
@@ -194,6 +125,28 @@ class MyApp extends StatelessWidget {
   }
 }
 
-void main() {
-  runApp(MyApp());
+class NewNavBar extends StatelessWidget {
+  final List<IconData> navBarIcons;
+
+  NewNavBar(this.navBarIcons);
+
+  void botaoFoiTocado(int index) {
+    print("Tocaram no botão $index");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      onTap: botaoFoiTocado,
+      selectedItemColor: Colors.green,
+      unselectedItemColor: Colors.green,
+      backgroundColor: Colors.green,
+      items: List.generate(navBarIcons.length, (index) {
+        return BottomNavigationBarItem(
+          icon: Icon(navBarIcons[index]),
+          label: "Voltar",
+        );
+      }),
+    );
+  }
 }
